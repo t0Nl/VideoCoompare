@@ -1,0 +1,20 @@
+import sys
+import cv2
+from skimage.metrics import structural_similarity
+from skimage.metrics import peak_signal_noise_ratio
+import skvideo.measure as skv
+import imquality.brisque as brisque
+import os
+import pathlib
+import PIL.Image
+
+REPLACEMENT_LINE_PLACEHOLDER
+
+pilImage = PIL.Image.open(imgPath)
+brisque = brisque.score(pilImage )
+
+cvImage = cv2.imread(imgPath)
+lumImage = cv2.cvtColor(cvImage, cv2.COLOR_BGR2GRAY)
+niqe = skv.niqe(lumImage)[0]
+
+print(str(brisque) + '|' + str(niqe));
